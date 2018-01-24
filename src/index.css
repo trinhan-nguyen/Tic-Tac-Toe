@@ -18,6 +18,7 @@ ol, ul {
 .status {
   margin-bottom: 12px;
   font-size: 36px;
+  display: flex;
 }
 
 .square {
@@ -49,7 +50,10 @@ ol, ul {
 }
 
 .game-info {
-  margin-left: 90px;
+  display: flex;
+  margin-left: 60px;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .btn-default {
@@ -58,6 +62,7 @@ ol, ul {
   margin-bottom: 11px;
   padding: 5px 12px;
   border: 1px black solid;
+  transition: all 0.1s ease;
 }
 
 .btn-default:focus {
@@ -74,7 +79,7 @@ ol, ul {
   padding: 0;
   position: absolute;
   right: 20px;
-  height: 69px;
+  height: 50px;
 }
 
 .tg-list {
@@ -98,9 +103,9 @@ ol, ul {
 .tgl + .tgl-btn {
   outline: 0;
   display: block;
-  width: 240px;
-  height: 69px;
-  font-size: 36px;
+  width: 180px;
+  height: 50px;
+  font-size: 27px;
   position: relative;
   cursor: pointer;
   user-select: none;
@@ -165,4 +170,63 @@ ol, ul {
 }
 .tgl-flip:checked + .tgl-btn:active:after {
   transform: rotateY(20deg);
+}
+
+@media screen and (max-width: 1050px) {
+  body {
+    margin-left: 0;
+  }
+
+  .game {
+    flex-direction: column;
+  }
+
+  .tgl + .tgl-btn {
+    margin: auto;
+  }
+
+  .tg-list-item {
+    position: static;
+    width: 100%;
+  }
+
+  .game-board {
+    display: flex;
+    justify-content: center;
+  }
+
+  .game-info {
+    margin: 20px 0;
+    flex-direction: column;
+  }
+
+  .status {
+    justify-content: center;
+  }
+
+  .moves {
+    margin-left: 50px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .status {
+    font-size: 30px;
+  }
+
+  .moves {
+    margin-left: 0;  
+    font-size: 18px;
+  }
+
+  .btn-default {
+    font-size: 15px;
+  }
+
+  .square {
+    border-width: 3px;
+    height: 100px;
+    width: 100px;
+    font-size: 66px;
+  }
 }

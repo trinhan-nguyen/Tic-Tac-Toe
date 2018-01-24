@@ -147,13 +147,13 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div className="status">{status}</div>
-          <ol>{moves}</ol>
+          <ol className="moves">{moves}</ol>
         </div>
-        <li class="tg-list-item" onChange={() => this.changeOrder()}>
-          <input class="tgl tgl-flip" id="toggle" type="checkbox"/>
+        <li className="tg-list-item" onChange={() => this.changeOrder()}>
+          <input className="tgl tgl-flip" id="toggle" type="checkbox"/>
           <label 
-            class="tgl-btn" data-tg-off="Ascending" 
-            data-tg-on="Descending" for="toggle">
+            className="tgl-btn" data-tg-off="Ascending" 
+            data-tg-on="Descending" htmlFor="toggle">
           </label>
         </li>
       </div>
