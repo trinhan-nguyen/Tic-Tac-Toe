@@ -154,8 +154,8 @@ class Game extends React.Component {
 
     let statusClasses = classNames({
       'status': true,
-      'blue': (!(stepNumber % 2) && stepNumber && !winner),
-      'red': (stepNumber % 2 && !winner)
+      'blue': (!(stepNumber % 2) && stepNumber && !winnerArr),
+      'red': (stepNumber % 2 && !winnerArr)
     });
 
 
