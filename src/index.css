@@ -41,6 +41,10 @@ ol, ul {
   color: blue;
 }
 
+.red {
+  color: red;
+}
+
 .black {
   color: black;
 }
@@ -80,7 +84,6 @@ ol, ul {
 
 .active {
   font-weight: 700;
-  background: pink;
 }
 
 .tg-list-item {
@@ -159,11 +162,11 @@ ol, ul {
 }
 .tgl-flip + .tgl-btn:after {
   content: attr(data-tg-on);
-  background: #02C66F;
+  background: blue;
   transform: rotateY(-180deg);
 }
 .tgl-flip + .tgl-btn:before {
-  background: #FF3A19;
+  background: red;
   content: attr(data-tg-off);
 }
 .tgl-flip + .tgl-btn:active:before {
@@ -175,7 +178,7 @@ ol, ul {
 .tgl-flip:checked + .tgl-btn:after {
   transform: rotateY(0);
   left: 0;
-  background: #7FC6A6;
+  background: blue;
 }
 .tgl-flip:checked + .tgl-btn:active:after {
   transform: rotateY(20deg);

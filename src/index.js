@@ -113,7 +113,8 @@ class Game extends React.Component {
 
   render() {
   	const history = this.state.history;
-  	const current = history[this.state.stepNumber].squares;
+    const stepNumber = this.state.stepNumber;
+  	const current = history[stepNumber].squares;
     const winnerArr = calculateWinner(current);
   	const winner = winnerArr ? current[winnerArr[0]] : null;
 
@@ -124,8 +125,11 @@ class Game extends React.Component {
         : 'Go to game start';
       let liClasses = classNames({
       	'btn-default': true,
-      	'active': move === currentFocus
+      	'active': move === currentFocus,
+        'blue': (!(move % 2) && move && !winner),
+        'red': (move % 2 && !winner)
       });
+
       return (
         <li key={move}>
           <button 
@@ -148,6 +152,13 @@ class Game extends React.Component {
   		status = 'Next player: ' + (this.state.xIsNext ? 'X': 'O');
   	}
 
+    let statusClasses = classNames({
+      'status': true,
+      'blue': (!(stepNumber % 2) && stepNumber && !winner),
+      'red': (stepNumber % 2 && !winner)
+    });
+
+
     return (
       <div className="game">
         <div className="game-board">
@@ -158,7 +169,7 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
-          <div className="status">{status}</div>
+          <div className={statusClasses}>{status}</div>
           <ol className="moves">{moves}</ol>
         </div>
         <li className="tg-list-item" onChange={() => this.changeOrder()}>
