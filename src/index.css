@@ -1,11 +1,12 @@
 body {
-  font: 45px "Century Gothic", Futura, sans-serif;
-  margin: 36px;
+  font: 24px "Century Gothic", Futura, sans-serif;
+  margin-left: 50px;
+  margin-top: 30px;
   font-weight: 600;
 }
 
 ol, ul {
-  padding-left: 30px;
+  padding-left: 50px;
 }
 
 .board-row:after {
@@ -15,7 +16,8 @@ ol, ul {
 }
 
 .status {
-  margin-bottom: 36px;
+  margin-bottom: 12px;
+  font-size: 36px;
 }
 
 .square {
@@ -47,5 +49,22 @@ ol, ul {
 }
 
 .game-info {
-  margin-left: 20px;
+  margin-left: 90px;
+}
+
+.btn-default {
+  font-size: 24px;
+  border-radius: 8px;
+  margin-bottom: 11px;
+  padding: 5px 12px;
+  border: 1px black solid;
+}
+
+.btn-default:focus {
+  outline: none;
+}
+
+.active {
+  font-weight: 700;
+  background: pink;
 }
