@@ -74,6 +74,12 @@ class Game extends React.Component {
     });
   }
 
+  changeOrder() {
+    this.setState({
+      ascending: !this.state.ascending
+    })
+  }
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -81,7 +87,8 @@ class Game extends React.Component {
 				squares: Array(9).fill(null),
 			}],
 			xIsNext: true,
-			stepNumber: 0
+			stepNumber: 0,
+      ascending: true
 		}
 	}
 
@@ -98,7 +105,7 @@ class Game extends React.Component {
   	const current = history[this.state.stepNumber];
   	const winner = calculateWinner(current.squares);
 
-    const moves = history.map((step, move) => {
+    var moves = history.map((step, move) => {
       const desc = move ?
         'Go to move #' + move + ': ' 
           + calculatePos(step.squares, history[move - 1].squares)
@@ -117,6 +124,9 @@ class Game extends React.Component {
         </li>
       );
     });
+
+    console.log(this.state.ascending);
+    if (!this.state.ascending) moves = moves.reverse();
 
   	let status;
   	if (winner === 'Draw') {
@@ -139,6 +149,13 @@ class Game extends React.Component {
           <div className="status">{status}</div>
           <ol>{moves}</ol>
         </div>
+        <li class="tg-list-item" onChange={() => this.changeOrder()}>
+          <input class="tgl tgl-flip" id="toggle" type="checkbox"/>
+          <label 
+            class="tgl-btn" data-tg-off="Ascending" 
+            data-tg-on="Descending" for="toggle">
+          </label>
+        </li>
       </div>
     );
   }
@@ -192,7 +209,7 @@ function calculatePos(before, current) {
 	];
 
 	for (let i = 0; i < current.length; ++i) {
-		if (before[i] !== current[i]) return '(row, column) = ' +position[i]; 
+		if (before[i] !== current[i]) return '(row, column) = ' + position[i]; 
 	}
 }
 
