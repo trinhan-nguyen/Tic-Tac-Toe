@@ -34,6 +34,15 @@ ol, ul {
   padding: 0;
   text-align: center;
   width: 150px;
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+.black {
+  color: black;
 }
 
 .square:focus {
